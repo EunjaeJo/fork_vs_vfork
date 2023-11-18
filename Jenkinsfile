@@ -12,7 +12,7 @@ node {
         }
     }
     stage('Push image') {
-        docker.withRegistry('https://index.docker.io/v1/', 'jaeae') {
+        docker.withRegistry('https://registry-1.docker.io/v2/', 'jaeae') {
            app.push("${env.BUILD_NUMBER}")
            app.push("latest")
         }
