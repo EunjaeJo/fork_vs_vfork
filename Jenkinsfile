@@ -4,7 +4,7 @@ node {
         git 'https://github.com/ejJo-sungshin/fork_vs_vfork.git'
     }
     stage('Build image') {
-        app = docker.build("EunjaeJo/prbasedtest")
+        app = docker.build("jaeae/test")
     }
     stage('Test image') {
         app.inside {
@@ -12,7 +12,7 @@ node {
         }
     }
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'EunjaeJo') {
+        docker.withRegistry('https://registry.hub.docker.com', 'jaeae') {
            app.push("${env.BUILD_NUMBER}")
            app.push("latest")
         }
